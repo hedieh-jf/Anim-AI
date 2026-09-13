@@ -1,0 +1,1427 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    /* --- رنگ‌های پایه --- */
+    --navy: #2E1F4A;
+    --navy-soft: #4A356A;
+    --cream: #FAF7FD;
+    --white: #FFFFFF;
+
+    /* --- رنگ اصلی: بنفش-صورتی --- */
+    --primary: #A855C9;
+    --primary-dark: #8B3BAB;
+    --primary-light: #D9A5E8;
+    --primary-soft: #F4E4FA;
+
+    /* --- آبی مکمل --- */
+    --sky: #5B9FD4;
+    --sky-dark: #3D7DB0;
+    --sky-light: #C5E2F5;
+    --sky-soft: #EAF4FC;
+
+    /* --- صورتی گرم مکمل --- */
+    --rose: #E85A8A;
+    --rose-dark: #C43E6D;
+    --rose-light: #F5B8CE;
+    --rose-soft: #FDEAF1;
+
+    /* --- بنفش ملایم --- */
+    --lavender: #8B7BD8;
+    --lavender-dark: #6B5BC0;
+    --lavender-soft: #EFEAFB;
+
+    /* --- متن و خطوط --- */
+    --text: #2E1F4A;
+    --text-muted: #6B5B7D;
+    --text-light: #9B8DAB;
+    --line: #E5DAF0;
+    --line-strong: #D0BFE0;
+
+    /* --- وضعیت --- */
+    --green: #4BB894;
+    --green-dark: #3A9A78;
+    --red: #E85A7A;
+    --red-dark: #C43E5D;
+
+    /* --- Aliases برای سازگاری با کد فعلی --- */
+    --orange: var(--primary);
+    --blue: var(--sky);
+    --purple: var(--lavender);
+    --mustard: var(--rose);
+    --muted: var(--text-muted);
+    --pink: var(--rose-light);
+}
+
+* {
+    box-sizing: border-box
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    color: var(--text)
+}
+
+body {
+    background:
+        radial-gradient(circle at 10% 10%, #EAF4FC 0, transparent 28%),
+        radial-gradient(circle at 90% 10%, #FDEAF1 0, transparent 26%),
+        radial-gradient(circle at 50% 90%, #EFEAFB 0, transparent 32%),
+        var(--cream);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+.hidden {
+    display: none !important
+}
+
+.app {
+    width: min(1200px, 94%);
+    margin: auto;
+    padding: 24px 0 55px
+}
+
+.screen {
+    min-height: calc(100vh - 79px)
+}
+
+/* ============ صفحه شروع ============ */
+.start-screen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    background: rgba(250, 247, 253, .82);
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    overflow: hidden;
+    box-shadow: 0 22px 70px rgba(46, 31, 74, 0.10);
+    padding: 52px;
+    position: relative;
+    animation: fadeIn .6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.start-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 800;
+    font-size: 18px
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 9px
+}
+
+.brand-link:hover {
+    opacity: .8
+}
+
+.brand span:first-child {
+    font-size: 26px
+}
+
+.version {
+    font-size: 10px;
+    background: var(--primary);
+    color: var(--white);
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 800
+}
+
+.start-copy {
+    max-width: 600px
+}
+
+.eyebrow {
+    font-size: 12px;
+    color: var(--primary-dark);
+    font-weight: 800;
+    letter-spacing: .5px
+}
+
+.start-copy h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.3;
+    margin: 12px 0
+}
+
+.start-copy h1 b {
+    color: var(--primary-dark)
+}
+
+.start-copy p {
+    color: var(--text-muted);
+    line-height: 2;
+    font-size: 16px
+}
+
+.start-copy label {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 20px 0 7px
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--line);
+    border-radius: 15px;
+    background: white;
+    color: var(--text);
+    outline: 0;
+    transition: .2s
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(168, 85, 201, 0.15)
+}
+
+.primary,
+.secondary,
+.ghost {
+    border: 0;
+    border-radius: 14px;
+    padding: 11px 17px;
+    font-weight: 800;
+    transition: .2s
+}
+
+.primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    box-shadow: 0 8px 18px rgba(168, 85, 201, 0.28)
+}
+
+.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(168, 85, 201, 0.4)
+}
+
+.secondary {
+    background: var(--sky-soft);
+    color: var(--navy)
+}
+
+.secondary:hover {
+    background: var(--sky-light)
+}
+
+.ghost {
+    background: var(--lavender-soft);
+    color: var(--text-muted)
+}
+
+.ghost:hover {
+    background: #E4DAF5
+}
+
+.big {
+    width: 100%;
+    padding: 15px;
+    margin-top: 12px;
+    font-size: 16px
+}
+
+.privacy {
+    font-size: 11px !important;
+    margin-top: 9px !important
+}
+
+.feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px
+}
+
+.feature-chips span {
+    font-size: 11px;
+    padding: 5px 10px;
+    background: var(--lavender-soft);
+    border-radius: 999px;
+    color: var(--text-muted);
+    font-weight: 700
+}
+
+/* تصویر شروع */
+.start-art {
+    height: 500px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, var(--sky-soft), var(--primary-soft));
+    border-radius: 28px;
+    overflow: hidden
+}
+
+.start-art:before,
+.start-art:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 2px dashed rgba(168, 85, 201, 0.35);
+    animation: spin 30s linear infinite
+}
+
+.start-art:before {
+    width: 330px;
+    height: 330px
+}
+
+.start-art:after {
+    width: 450px;
+    height: 450px;
+    animation-direction: reverse
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.clapper {
+    font-size: 125px;
+    filter: drop-shadow(0 18px 12px rgba(46, 31, 74, 0.10));
+    z-index: 2;
+    animation: bob 3s ease-in-out infinite
+}
+
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-3deg)
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(3deg)
+    }
+}
+
+.orbit {
+    position: absolute;
+    z-index: 3;
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(46, 31, 74, 0.14);
+    font-size: 30px;
+    animation: float 4s ease-in-out infinite
+}
+
+.o1 {
+    top: 85px;
+    right: 80px;
+    animation-delay: 0s
+}
+
+.o2 {
+    bottom: 90px;
+    right: 70px;
+    animation-delay: .5s
+}
+
+.o3 {
+    top: 160px;
+    left: 70px;
+    animation-delay: 1s
+}
+
+.o4 {
+    bottom: 140px;
+    left: 90px;
+    animation-delay: 1.5s
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-12px)
+    }
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 22px;
+    animation: twinkle 2s ease-in-out infinite
+}
+
+.s1 {
+    top: 40px;
+    left: 120px
+}
+
+.s2 {
+    bottom: 60px;
+    left: 180px;
+    animation-delay: .7s
+}
+
+.s3 {
+    top: 220px;
+    right: 150px;
+    animation-delay: 1.2s
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: .3;
+        transform: scale(.8)
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2)
+    }
+}
+
+/* ============ نوار بالا ============ */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 9px
+}
+
+.stat {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 6px 12px;
+    min-width: 78px;
+    text-align: center;
+    transition: .2s
+}
+
+.stat span {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted)
+}
+
+.stat strong {
+    font-size: 15px
+}
+
+.timer strong {
+    color: var(--primary-dark)
+}
+
+#comboStat {
+    background: linear-gradient(135deg, var(--primary-soft), var(--rose-soft));
+    border-color: var(--primary-light)
+}
+
+#comboStat.hot {
+    animation: comboPulse .5s ease
+}
+
+@keyframes comboPulse {
+
+    0%,
+    100% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(168, 85, 201, 0.4)
+    }
+}
+
+.icon-btn {
+    border: 0;
+    background: var(--lavender-soft);
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 25px;
+    color: var(--text-muted);
+    transition: .2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center
+}
+
+.icon-btn:hover {
+    background: var(--red);
+    color: white
+}
+
+/* ============ نوار پیشرفت داستانی ============ */
+.story-track {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 20px
+}
+
+.story-step {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 700;
+    transition: .3s
+}
+
+.story-step span {
+    width: 26px;
+    height: 26px;
+    background: var(--lavender-soft);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    transition: .3s
+}
+
+.story-step.active {
+    color: var(--primary-dark)
+}
+
+.story-step.active span {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 0 0 4px rgba(168, 85, 201, 0.2)
+}
+
+.story-step.done {
+    color: var(--green)
+}
+
+.story-step.done span {
+    background: var(--green);
+    color: white
+}
+
+.story-line {
+    flex: 1;
+    height: 2px;
+    background: var(--lavender-soft);
+    border-radius: 2px
+}
+
+/* ============ خط بازیکن ============ */
+.player-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 14px
+}
+
+.player-line small {
+    color: var(--text-muted)
+}
+
+.mission-progress {
+    width: 320px;
+    font-size: 11px;
+    color: var(--text-muted)
+}
+
+.mission-progress>div {
+    height: 8px;
+    background: var(--line);
+    border-radius: 20px;
+    margin-top: 6px;
+    overflow: hidden
+}
+
+.mission-progress i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--rose));
+    transition: .35s;
+    border-radius: 20px
+}
+
+/* ============ دستیار AI ============ */
+.ai-guide {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    animation: slideIn .4s ease
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.ai-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--lavender), var(--primary));
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(139, 123, 216, 0.35);
+    animation: pulse 3s ease-in-out infinite
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 8px 20px rgba(139, 123, 216, 0.35)
+    }
+
+    50% {
+        box-shadow: 0 8px 30px rgba(168, 85, 201, 0.5)
+    }
+}
+
+.ai-bubble {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px 18px 18px 4px;
+    padding: 12px 16px;
+    flex: 1;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(46, 31, 74, 0.05)
+}
+
+.ai-bubble:before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    background: var(--white);
+    border-right: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+    transform: rotate(45deg)
+}
+
+.ai-name {
+    font-size: 10px;
+    color: var(--lavender-dark);
+    font-weight: 800;
+    margin-bottom: 4px
+}
+
+.ai-bubble p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text)
+}
+
+/* ============ کارت مأموریت ============ */
+.mission-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+    color: white;
+    border-radius: 23px;
+    box-shadow: 0 15px 40px rgba(46, 31, 74, 0.25);
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden
+}
+
+.mission-card:before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(168, 85, 201, 0.25), transparent 70%);
+    border-radius: 50%
+}
+
+.mission-card h2 {
+    margin: 4px 0;
+    font-size: 19px
+}
+
+.mission-card p {
+    margin: 0;
+    color: #dbe1eb;
+    font-size: 12px;
+    line-height: 1.8
+}
+
+.mission-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 27px;
+    flex: 0 0 auto
+}
+
+.hint-box {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 7px;
+    border-radius: 13px;
+    position: relative;
+    z-index: 1
+}
+
+.hint-box span {
+    font-size: 10px
+}
+
+.hint-box button {
+    border: 0;
+    background: linear-gradient(135deg, var(--primary), var(--rose));
+    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    transition: .2s
+}
+
+.hint-box button:hover {
+    transform: scale(1.1)
+}
+
+.hint-box b {
+    font-size: 11px;
+    min-width: 12px
+}
+
+/* ============ چیدمان بازی ============ */
+.game-layout {
+    display: grid;
+    grid-template-columns: 1.45fr .8fr;
+    gap: 18px
+}
+
+.panel {
+    background: rgba(250, 247, 253, .94);
+    border: 1px solid var(--line);
+    border-radius: 23px;
+    padding: 23px;
+    box-shadow: 0 12px 38px rgba(46, 31, 74, 0.06);
+    backdrop-filter: blur(10px)
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px
+}
+
+.panel h2 {
+    font-size: 20px;
+    margin: 4px 0 0
+}
+
+.pill {
+    font-size: 11px;
+    color: var(--text-muted);
+    background: var(--lavender-soft);
+    border-radius: 999px;
+    padding: 7px 10px
+}
+
+/* ============ کارت‌های مرحله ============ */
+.answer-list,
+.bank {
+    display: grid;
+    gap: 8px
+}
+
+.stage {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: white;
+    border: 2px solid var(--line);
+    border-radius: 15px;
+    padding: 9px 11px;
+    min-height: 59px;
+    transition: .18s;
+    user-select: none;
+    cursor: grab;
+    animation: cardDrop .4s ease backwards
+}
+
+@keyframes cardDrop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(.9)
+    }
+
+    100% {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.stage:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+    box-shadow: 0 6px 16px rgba(46, 31, 74, 0.08)
+}
+
+.stage.dragging {
+    opacity: .35;
+    cursor: grabbing
+}
+
+.stage.selected {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(168, 85, 201, 0.2)
+}
+
+.stage.correct {
+    border-color: #8BC19B;
+    background: linear-gradient(135deg, #F0F8F2, #E6F4EA);
+    animation: glow .6s ease
+}
+
+.stage.wrong {
+    border-color: #DF9B9B;
+    background: #FFF5F5;
+    animation: shake .4s ease
+}
+
+.stage.drop-hint {
+    border-color: var(--sky);
+    background: var(--sky-soft);
+    border-style: dashed
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(75, 184, 148, 0.5)
+    }
+
+    100% {
+        box-shadow: 0 0 0 16px rgba(75, 184, 148, 0)
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0)
+    }
+
+    25% {
+        transform: translateX(-8px)
+    }
+
+    75% {
+        transform: translateX(8px)
+    }
+}
+
+.number {
+    width: 30px;
+    height: 30px;
+    background: var(--sky-soft);
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 12px;
+    flex-shrink: 0
+}
+
+.stage-icon {
+    font-size: 23px
+}
+
+.stage-content {
+    flex: 1
+}
+
+.stage-title {
+    display: block;
+    font-weight: 800;
+    font-size: 13px
+}
+
+.stage-desc {
+    display: block;
+    color: var(--text-muted);
+    font-size: 10px;
+    margin-top: 2px
+}
+
+.drag-handle {
+    color: var(--text-light);
+    font-size: 18px
+}
+
+.bank .stage .number {
+    background: var(--primary-soft)
+}
+
+
+/* ============ آزمون سریع ============ */
+.quiz-panel {
+    display: none
+}
+
+.quiz-mode .game-layout {
+    display: none
+}
+
+.quiz-mode .quiz-panel {
+    display: block;
+    animation: cardDrop .4s ease
+}
+
+.quiz-mode .hint-box {
+    visibility: hidden
+}
+
+.quiz-mode .mission-progress {
+    visibility: hidden
+}
+
+.quiz-question {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.7;
+    margin: 6px 0 18px
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.quiz-option {
+    text-align: right;
+    background: white;
+    border: 2px solid var(--line);
+    border-radius: 15px;
+    padding: 14px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .18s
+}
+
+.quiz-option:hover:not(:disabled) {
+    transform: translateY(-2px);
+    border-color: var(--primary-light);
+    box-shadow: 0 6px 16px rgba(46, 31, 74, 0.08)
+}
+
+.quiz-option:disabled {
+    cursor: default
+}
+
+.quiz-option.correct {
+    border-color: #8BC19B;
+    background: linear-gradient(135deg, #F0F8F2, #E6F4EA);
+    animation: glow .6s ease
+}
+
+.quiz-option.wrong {
+    border-color: #DF9B9B;
+    background: #FFF5F5;
+    animation: shake .4s ease
+}
+
+/* ============ نکته ============ */
+.tip {
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 15px;
+    background: var(--sky-soft)
+}
+
+.tip b {
+    font-size: 12px
+}
+
+.tip p {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin: 5px 0 0
+}
+
+/* ============ دکمه‌ها و بازخورد ============ */
+.action-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 15px
+}
+
+.feedback {
+    min-height: 25px;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+    line-height: 1.8
+}
+
+.feedback.success {
+    color: var(--green-dark)
+}
+
+.feedback.error {
+    color: var(--red-dark)
+}
+
+/* ============ صفحه نتیجه ============ */
+.result-screen {
+    display: grid;
+    place-items: center
+}
+
+.result-card {
+    width: min(620px, 100%);
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    padding: 38px;
+    box-shadow: 0 25px 80px rgba(46, 31, 74, 0.14);
+    animation: fadeIn .5s ease
+}
+
+.result-badge {
+    font-size: 64px;
+    animation: bounce 1s ease
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-15px)
+    }
+}
+
+.result-card h1 {
+    font-size: 32px;
+    margin: 7px 0
+}
+
+.result-card>p {
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin: 0 auto 18px
+}
+
+.score-ring {
+    width: 130px;
+    height: 130px;
+    margin: 15px auto;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0 85%, var(--lavender-soft) 85% 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: background 1s ease
+}
+
+.score-ring:after {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    background: var(--white);
+    border-radius: 50%
+}
+
+.score-ring strong,
+.score-ring span {
+    position: relative;
+    z-index: 1
+}
+
+.score-ring strong {
+    font-size: 30px;
+    line-height: 1.1
+}
+
+.score-ring span {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 18px 0
+}
+
+.result-grid div {
+    background: var(--lavender-soft);
+    border-radius: 14px;
+    padding: 10px
+}
+
+.result-grid b,
+.result-grid span {
+    display: block
+}
+
+.result-grid b {
+    font-size: 18px
+}
+
+.result-grid span {
+    font-size: 10px;
+    color: var(--text-muted)
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px
+}
+
+.certificate {
+    margin-top: 20px;
+    padding: 11px;
+    border-radius: 13px;
+    background: #EEF5F0;
+    color: var(--green-dark);
+    font-size: 11px
+}
+
+.certificate span {
+    margin: 0 4px;
+    color: var(--text-muted)
+}
+
+.key-message {
+    margin-top: 10px;
+    padding: 12px 14px;
+    border-radius: 13px;
+    background: linear-gradient(135deg, var(--lavender-soft), var(--sky-soft));
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.8
+}
+
+.key-message b {
+    color: var(--primary-dark)
+}
+
+/* ============ پیش‌نمایش انیمیشن ============ */
+.animation-preview {
+    margin-top: 20px;
+    padding: 16px;
+    background: var(--lavender-soft);
+    border-radius: 16px
+}
+
+.preview-title {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text)
+}
+
+.preview-frames {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.frame {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    opacity: .3;
+    transition: .4s;
+    transform: scale(.9)
+}
+
+.frame.on {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(46, 31, 74, 0.14);
+    animation: pop .4s ease
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(.5)
+    }
+
+    50% {
+        transform: scale(1.15)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+/* ============ کانفتی ============ */
+#confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50
+}
+
+.piece {
+    position: absolute;
+    width: 9px;
+    height: 15px;
+    animation: fall 1.7s ease-out forwards
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px) rotate(0)
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0
+    }
+}
+
+/* ============ Toast ============ */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background: var(--navy);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 13px;
+    box-shadow: 0 12px 30px rgba(46, 31, 74, 0.35);
+    z-index: 100;
+    transition: .4s;
+    opacity: 0
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1
+}
+
+.toast.good {
+    background: var(--green)
+}
+
+.toast.bad {
+    background: var(--red)
+}
+
+/* ============ ریسپانسیو ============ */
+@media(max-width:900px) {
+    .start-screen {
+        grid-template-columns: 1fr;
+        padding: 30px
+    }
+
+    .start-art {
+        height: 260px;
+        order: -1
+    }
+
+    .clapper {
+        font-size: 90px
+    }
+
+    .game-layout {
+        grid-template-columns: 1fr
+    }
+
+    .mission-card {
+        align-items: flex-start
+    }
+
+    .hint-box {
+        margin-right: 0
+    }
+
+    .player-line {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .mission-progress {
+        width: 100%
+    }
+
+    .story-track {
+        overflow-x: auto
+    }
+
+    .story-step b {
+        display: none
+    }
+}
+
+@media(max-width:500px) {
+    .app {
+        width: 95%;
+        padding-top: 12px
+    }
+
+    .start-copy h1 {
+        font-size: 32px
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px
+    }
+
+    .stats {
+        gap: 5px;
+        flex-wrap: wrap
+    }
+
+    .stat {
+        min-width: 60px;
+        padding: 5px 8px
+    }
+
+    .mission-card {
+        padding: 16px
+    }
+
+    .mission-icon {
+        display: none
+    }
+
+    .panel {
+        padding: 17px
+    }
+
+    .result-card {
+        padding: 28px 18px
+    }
+
+    .result-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .action-row button {
+        flex: 1 1 100%
+    }
+
+    .result-actions {
+        flex-direction: column
+    }
+
+    .orbit,
+    .sparkle {
+        display: none
+    }
+
+    .stage-desc {
+        display: none
+    }
+
+    .quiz-options {
+        grid-template-columns: 1fr
+    }
+}
